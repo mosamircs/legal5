@@ -367,27 +367,7 @@
                 </div>
             </form>
         </section>
-        <!--thanks msg-->
-        <section class="layer justify-content-center align-items-center" style="height: -webkit-fill-available;">
-        <div class=" ">
-	  <div class="">
-		<div class="">
-			<div class="thanks-wrap">
-				<div class="checkmark">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.2 161.2">
-						<circle class="path" fill="none" stroke="#000086" stroke-width="4" stroke-miterlimit="10" cx="80.6" cy="80.6" r="62.1"/>
-						<path class="path" fill="none" stroke="#000086" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" d="M113 52.8l-38.9 55.6-25.9-22"/>
-						<circle class="spin" fill="none" stroke="#555555" stroke-width="4" stroke-miterlimit="10" stroke-dasharray="12.2175,12.2175" cx="80.6" cy="80.6" r="73.9"/>
-					</svg>
-				</div>
-				<h2 class="pt-5">تم التسجيل بنجاح</h2>
-			</div>
-			<!-- <a href="">Вернуться на сайт</a> -->
-		</div>
-	</div>
-</div>
-</section>
-
+     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

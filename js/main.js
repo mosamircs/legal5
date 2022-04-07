@@ -97,17 +97,17 @@ function showLayer(curr){
         partName.innerHTML = 'ادخل اسماء المديرين';
            
     }
-    if (curr == (layer.length - 2)) {
+    if (curr == (layer.length - 1)) {
         document.getElementById("next-1").innerHTML = "حفظ";
       } else {
         document.getElementById("next-1").innerHTML = "التالى";
       }
-    if (curr == (layer.length - 1)){
-    layer[curr].style.display = 'flex';
+    // if (curr == (layer.length - 1)){
+    // layer[curr].style.display = 'flex';
 
-        divButChose.style.display = 'none';
-        proBar.style.display = 'none';
-    }  
+    //     divButChose.style.display = 'none';
+    //     proBar.style.display = 'none';
+    // }  
     //update progress bar 
     update();
 }
@@ -120,7 +120,7 @@ function changeLayer(curr){
     layer[currLayer].style.display = "none";
     currLayer = currLayer + curr;
     // console.log(currLayer);
-        if (currLayer >= (layer.length-1)) {
+        if (currLayer >= layer.length) {
             form.submit();
             return false;
         }
