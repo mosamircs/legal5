@@ -24,4 +24,8 @@ class Database
     {
         return $this->connection;
     }
+    public function destructConnection()
+    {
+        mysqli_close($this->connection);
+    }
 }

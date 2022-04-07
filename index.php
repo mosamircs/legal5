@@ -345,7 +345,7 @@
                                     <button  onclick = "download_docx('incorporation-poa-amended.docx');" type  ="button"class="btn btn-down-paper"><img src="images/Vector (1).svg" >برجاء تحميل التوكيل وملا البيانات</button>
                                         <h6 class="pt-3 sec">برجاء تحديد موعدالشهر العقاري لتوقيع التوكيل</h6>
                                         <div>
-                                        <input type="text" class="form-control mx-auto mb-3" id="result" placeholder="Select date" name= "signdate" disabled required>
+                                        <input type="text" class="form-control mx-auto mb-3" id="result" placeholder="Select date" name= "signdate" readonly required>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div id="inline_cal"></div>
