@@ -806,7 +806,7 @@ if(parentCard.getElementsByTagName('div').length == 0 ){
                       </div>
                   </div>
                   <div class="col-6 align-self-center" style="padding-top: 33px;">
-                      <div class="id"><img src="${e.prev}" alt="" width="100%" id="imagePrev_${i}" class="imgId"></div>
+                      <div class="id"><img src="${e.prev}" alt="" width="100%" name = "personal_id[]" id="imagePrev_${i}" class="imgId"></div>
                   </div>
               </div>
           </div>
