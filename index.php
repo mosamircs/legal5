@@ -288,10 +288,10 @@
                                     <p style="margin: auto;padding-right: 1rem;padding-left: 1rem;font-weight 400;">بيانات المالك</p>
                                     </div>
                                   </div>
-                                   </div>
+                                </div>
                             </div>
-                            <div class="oneComp">
-                            <div class="row g-3 justify-content-between pt-3 mangData" dir="rtl" data-id="item_0">
+                            <div id="oneCompDiv">
+                                 <!-- <div class="row g-3 justify-content-between pt-3 mangData" dir="rtl" data-id="item_0">
                                 <div class="col-md-4">
                                   <label for="inputtext1" class="form-label mang" id="mangName">اسم المالك</label>
                                   <input type="text" class="form-control lay3 mangInfo" id="name" name="shareholder_name[]" >
@@ -300,11 +300,7 @@
                                   <label for="inputtext1" class="form-label mang">جنسيه المالك</label>
                                     <input type="text" class="form-control lay3 mangInfo" id="nation" name="shareholder_nationality[]">
                                 </div>
-                                <!-- <div class="col-md-3">
-                                    <label for="inputtext6" class="form-label" style="display: none;">نسبه المساهمه</label>
-                                  <label for="inputtext1" class="form-label mang">نسبه المالك</label>
-                                    <input type="text" class="form-control lay3" id="inputtext6" name="shareholder_percentage[]" disabled>
-                                </div> -->
+                               
                                     <div class="col-md-6 mb-3">
                                         <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
                                         <input class="form-control lay3 mangInfo" name="personal_id[]" type="file" id="id" accept="image/png, image/gif, image/jpeg">
@@ -312,11 +308,10 @@
                                     <div class="col-md-4 x-last align-self-center">
                                         <button class="btn btn-outline-danger" type="reset" id="partCompDel">حذف المالك</button>
                                     </div>
-                                    <hr>
+                                 <hr>
+                            </div> -->
                             </div>
-                            </div>
-                            <div  id="part-form" class="container">
-                            </div>
+                            <div id="part-form" class="container"></div>
                         </div>
                         <!-- layer---4 mangers names -->
                         <div  class="layer">
@@ -360,7 +355,7 @@
                          <div id="but-chose">
                           <div class="btn-chose d-flex justify-content-center pb-3 pt-3">
                               <button class="btn next mr-3" id="next-1" type="button" onclick="changeLayer(1)">التالي</button>
-                              <button class="btn pre " id="prev-1" type="button" onclick="changeLayer(-1);arrayEle = []; arrayNames = [];">السابق</button>
+                              <button class="btn pre " id="prev-1" type="button" onclick="changeLayer(-1);arrayEle = []; arrayNames = []; newComp.remove();">السابق</button>
                           </div>
                          </div>
                     </div>
@@ -370,7 +365,7 @@
      
     <script src="js/jquery.min.js" ></script>
     <script src="js/popper.min.js" ></script>
-    <script src="js/bootstrap.min.js" "></script>
+    <script src="js/bootstrap.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.16/js/intlTelInput.min.js" integrity="sha512-Po9nSdYOcWIcoADdRjkAbRYPpR8OHjxzA/3RDUERZcDewTLzRTxbG4bUX7Sr7lVEcO3wTCzphdOBWgNFKVmxaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/rome.js"></script>
 

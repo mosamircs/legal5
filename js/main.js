@@ -24,6 +24,7 @@ const partComp = document.getElementsByTagName('label');
 const mangers = document.getElementsByClassName('mang');
 // const selectMang = document.getElementsByClassName('selectMang');
 
+const oneCompany = document.getElementById('oneCompDiv');
 ///////// show layers 
 let currLayer = 0;
 showLayer(currLayer);
@@ -81,12 +82,14 @@ function showLayer(curr){
 
     if((curr == 3 && checkbox3.checked) || (curr == 3 && checkbox4.checked) ){
         oneComp();
+        buildOneOwner();
         document.getElementById('soloComp').style.display = 'block';
     }else{
         document.getElementById('specificSizeSelect').style.display = 'block';
         [...$('.oneComp')].forEach(e =>{
         e.style.display='none';
        });
+    //    oneCompany.remove();
        document.getElementById('soloComp').style.display = 'none';
     }
 
@@ -102,12 +105,12 @@ function showLayer(curr){
       } else {
         document.getElementById("next-1").innerHTML = "التالى";
       }
-    // if (curr == (layer.length - 1)){
+    if (curr == layer.length){
     // layer[curr].style.display = 'flex';
 
-    //     divButChose.style.display = 'none';
-    //     proBar.style.display = 'none';
-    // }  
+        divButChose.style.display = 'none';
+        proBar.style.display = 'none';
+    }  
     //update progress bar 
     update();
 }
@@ -529,6 +532,29 @@ function checkboxSelection(){
         // disOpt1();
     }
 
+}
+const newComp = document.createElement('div');
+function buildOneOwner(){
+    newComp.classList.add('row','g-3','justify-content-between','pt-3','mangData');
+    newComp.setAttribute('dir','rtl');
+    newComp.innerHTML = `<div class="col-md-4">
+    <label for="inputtext1" class="form-label mang" id="mangName">اسم المالك</label>
+    <input type="text" class="form-control lay3 mangInfo" id="name" name="shareholder_name[]" >
+  </div>
+  <div class="col-md-4">
+    <label for="inputtext1" class="form-label mang">جنسيه المالك</label>
+      <input type="text" class="form-control lay3 mangInfo" id="nation" name="shareholder_nationality[]">
+  </div>
+ 
+      <div class="col-md-6 mb-3">
+          <label for="formFileMultiple" class="form-label">اضافه البطاقه الشخصية</label>
+          <input class="form-control lay3 mangInfo" name="personal_id[]" type="file" id="id" accept="image/png, image/gif, image/jpeg">
+        </div>
+      <div class="col-md-4 x-last align-self-center">
+          <button class="btn btn-outline-danger" type="reset" id="partCompDel">حذف المالك</button>
+      </div>
+      <hr>`;
+    oneCompany.appendChild(newComp);
 }
 function oneComp(){
     document.getElementById('specificSizeSelect').style.display = 'none';
