@@ -159,25 +159,27 @@
     $formdata["company_id"] = $connection->insert_id;
     if (empty($formdata["shareholder_percentage"])) {
         for ($i=0; $i < count($_POST["shareholder_name"]) ; $i++) { 
-        $insert_shareholder = "INSERT INTO `shareholders`(`name`,`nationality`, `personal_id`,`company_id`) VALUES ('".$formdata["shareholder_name"][$i]."','".$formdata["shareholder_nationality"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["company_id"]."')";
-        $result_insert = $connection->query($insert_shareholder);
+        $insert .= "INSERT INTO `shareholders`(`name`,`nationality`, `personal_id`,`company_id`) VALUES ('".$formdata["shareholder_name"][$i]."','".$formdata["shareholder_nationality"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["company_id"]."');";
+        // $result_insert = $connection->query($insert_shareholder);
         } 
     }else{
         for ($i=0; $i < count($_POST["shareholder_name"]) ; $i++) { 
-            $insert_shareholder = "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$formdata["shareholder_name"][$i]."','".$formdata["shareholder_nationality"][$i]."','".$formdata["shareholder_percentage"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["company_id"]."')";
-            $result_insert = $connection->query($insert_shareholder); 
+            $insert  .= "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$formdata["shareholder_name"][$i]."','".$formdata["shareholder_nationality"][$i]."','".$formdata["shareholder_percentage"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["company_id"]."');";
+            // $result_insert = $connection->query($insert_shareholder); 
         }
     }
     if(empty($formdata["perm1"])||empty($formdata["perm2"])||empty($formdata["perm3"])||empty($formdata["manager_type"])){
         for ($i=0; $i < count($_POST["manager_name"]) ; $i++) {
-        $insert_maneger = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`company_id`) VALUES ('".$formdata["manager_name"][$i]."','".$formdata["manager_nationality"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["company_id"]."')";
-        $result_insert = $connection->query($insert_maneger); 
+        $insert .= "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`company_id`) VALUES ('".$formdata["manager_name"][$i]."','".$formdata["manager_nationality"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["company_id"]."');";
+        // $result_insert = $connection->query($insert_maneger); 
         }
     }else{
     for ($i=0; $i < count($_POST["manager_name"]) ; $i++) {
-        $insert_maneger = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$formdata["manager_name"][$i]."','".$formdata["manager_nationality"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["perm1"][$i]."','".$formdata["perm2"][$i]."','".$formdata["perm3"][$i]."','".$formdata["manager_type"][$i]."','".$formdata["company_id"]."')";
-        $result_insert = $connection->query($insert_maneger); 
+        $insert .= "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$formdata["manager_name"][$i]."','".$formdata["manager_nationality"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["perm1"][$i]."','".$formdata["perm2"][$i]."','".$formdata["perm3"][$i]."','".$formdata["manager_type"][$i]."','".$formdata["company_id"]."')";
+        // $result_insert = $connection->query($insert_maneger); 
     }
 }
+    //multi query for insert data
+    $result = $connection->multi_query($insert);
     $database_instance->destructConnection();
 ?>
