@@ -10,8 +10,6 @@
        }
        if (isset($_POST["email"])) {
            $formdata["email"] = $_POST["email"];
-           $regex = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/'; 
-           $formdata["email"]  = (preg_match($regex, $email))?$formdata["email"] :"invalid email";
            $sql = "SELECT * FROM users where email='".$formdata["email"]."'";
            $result = $connection->query($sql);
             $num_rows = mysqli_num_rows($result);
@@ -29,7 +27,7 @@
            $result = $connection->query($sql);
            $num_rows = mysqli_num_rows($result);
            if($num_rows >= 1){
-               // echo "phone exist";
+               // echo "email exist";
            }else{
              $phone = $formdata["phone"];
              $sql = "SELECT * FROM users where phone='".$formdata["phone"]."'";

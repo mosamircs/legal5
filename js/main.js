@@ -428,7 +428,7 @@ function setInputFilter(textbox, inputFilter) {
       // options here
       
     // initialCountry:"egypt"
-    initialCountry: "In",
+    // initialCountry: "Eg",
     }));
     $(document).ready(function() {
         $('.iti__flag-container').click(function() { 
