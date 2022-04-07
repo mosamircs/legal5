@@ -44,11 +44,7 @@
     global $formdata;
     $database_instance = Database::getInstance();
     $connection = $database_instance->getConnection();
-    // echo "<pre>";
-    // var_dump($_POST);
-    // echo "</pre>";
     $formdata = array();
-    // var_dump($_FILES["personal_id"]["name"]);
     if (isset($_POST['userid'])) {
         $formdata["userid"] = $_POST['userid'];
     }
@@ -155,19 +151,23 @@
         $formdata["signdate"] = $_POST["signdate"];
         $_insert_sign_date = "UPDATE users SET date='".$formdata["signdate"]."'";
     }
-    $insert_company = "INSERT INTO `companies`(`company_type`,`company_name` , `company_address`, `company_activity`, `capital_value`, `capital_share`,`user_id`) VALUES ('".$formdata["company_type"]."','".$formdata["company_name"]."','".$formdata["company_address"]."','".$formdata["company_activity"]."','".$formdata["capital_value"]."','".$formdata["capital_share"]."','".$formdata["userid"]."')";
-    $result1 = $connection->query($insert_company);  
-    $formdata["company_id"] = $connection->insert_id;
-
+    if(isset($formdata["company_type"]) && isset($formdata["company_name"])  && isset($formdata["capital_value"]) && isset($formdata["capital_share"]))
+    {
+        $insert_company = "INSERT INTO `companies`(`company_type`,`company_name` , `company_address`, `company_activity`, `capital_value`, `capital_share`,`user_id`) VALUES ('".$formdata["company_type"]."','".$formdata["company_name"]."','".$formdata["company_address"]."','".$formdata["company_activity"]."','".$formdata["capital_value"]."','".$formdata["capital_share"]."','".$formdata["userid"]."')";
+        $result1 = $connection->query($insert_company);  
+        $formdata["company_id"] = $connection->insert_id;
+    }
+    if (isset($formdata["shareholder_name"]) && isset($formdata["shareholder_nationality"])) {
     for ($i=0; $i < count($_POST["shareholder_name"]) ; $i++) {
         
         $insert_shareholder = "INSERT INTO `shareholders`(`name`,`nationality` , `percenatage`, `personal_id`,`company_id`) VALUES ('".$formdata["shareholder_name"][$i]."','".$formdata["shareholder_nationality"][$i]."','".$formdata["shareholder_percentage"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["company_id"]."')";
-        // var_dump($insert_shareholder);
         $result2 = $connection->query($insert_shareholder);  
     }
+}
+if(isset($formdata["manager_name"]) && isset($formdata["manager_nationality"])){
     for ($i=0; $i < count($_POST["manager_name"]) ; $i++) {
     $insert_manager = "INSERT INTO `managers`(`name`,`nationality` , `personal_id`,`perm1`,`perm2`,`perm3`,`manager_type`,`company_id`) VALUES ('".$formdata["manager_name"][$i]."','".$formdata["manager_nationality"][$i]."','".$formdata["personal_id"][$i]."','".$formdata["perm1"][$i]."','".$formdata["perm2"][$i]."','".$formdata["perm3"][$i]."','".$formdata["manager_type"][$i]."','".$formdata["company_id"]."')";
     $result3 = $connection->query($insert_manager);  
     }
-    header("Location: index.php");
+}
 ?>

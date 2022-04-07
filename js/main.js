@@ -428,7 +428,7 @@ function setInputFilter(textbox, inputFilter) {
       // options here
       
     // initialCountry:"egypt"
-
+    initialCountry: "In",
     }));
     $(document).ready(function() {
         $('.iti__flag-container').click(function() { 
@@ -638,7 +638,7 @@ let labelNameValue, labelNationValue, labelrangeValue, btnDelete;
         
         select.addEventListener('change',(e)=>{
             e.preventDefault();
-            console.log('here');
+            // console.log('here');
             parentCountEl.innerHTML = '';
             if(checkbox2.checked){
                 labelNameValue = 'اسم المساهم';

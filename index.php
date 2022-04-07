@@ -390,7 +390,6 @@
         function DownloadFile(fileName) {
             //Set the File URL.
             var url = "files/" + fileName;
- 
             //Create XMLHTTP Request.
             var req = new XMLHttpRequest();
             req.open("GET", url, true);
@@ -398,7 +397,6 @@
             req.onload = function () {
                 //Convert the Byte Data to BLOB object.
                 var blob = new Blob([req.response], { type: "application/octetstream" });
- 
                 //Check the Browser type and download the File.
                 var isIE = false || !!document.documentMode;
                 if (isIE) {
@@ -419,21 +417,13 @@
 </script> 
 <script>
     $(document).on('click','#btnSubmit',function(e){
-        
-        // e.preventDefault();
-        
         var serialized_data = $("#register_user").serialize(); 
-
         $.ajax({
             url: 'register.php',
             type: 'post',
             data: serialized_data,
             success:function(response){
-                //console.log(response);
                 document.getElementById("userid").value = response.id;
-                // console.log("user id is: " + response.id);
-                 //console.log( document.getElementById("userid").value);
-
             }
         });
     });
